@@ -124,33 +124,81 @@ body{
 .users{
     padding: 20px 30px;   
 }
-.users header{
+
+.users-list{
+    max-height: 350px;
+    overflow-y: auto;
+}
+.users-list::-webkit-scrollbar{
+    width: 0;
+}
+
+.users-list a .content p {
+    color: #676767;
+}
+
+.users header,
+.users-list a{
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 5px;
+}
+
+.users-list a{
+    margin: 15px;
+    page-break-after: 10px;
+    border-bottom: #f1f1f1;
+    padding: 5px 10px 5px 5px ;
+    border-bottom: 1px solid #e6e6e6;
+}
+.users-list a:hover{
+    background: rgb(214, 214, 214);
+}
+.users-list a:first-child{
+    margin-top: 0;
+}
+.users-list a:last-child{
+    border: none;
+    margin-bottom: 0px;
 }
 
 .users header .content img{
     width: 50px;
     height: 50px;
 }
-.users header .content{
+:is(.users, .users-list) .content
+{
     display: flex;
+    align-items: center;
 }
 .wrapper img{
     object-fit: cover;
     border-radius: 50%;
 }
 
-.users header .details{
+:is(.users, .users-list) .details{
+    color: #000;
     margin-left: 15px;
 }
-.users header .details span{
+
+.type{
+    color: rgb(0, 185, 40) !important;
+}
+
+:is(.users, .users-list) .details span{
     font-size: 18px;
     font-weight: 500px;
 }
 
+.users-list span{
+    font-size: 20px;
+}
+
+.users-list p{
+    font-size: 14px;
+}
 .users header .logout{
     background: rgb(175, 34, 34);
     color: #fff;
@@ -193,4 +241,21 @@ body{
     text-align: center;
     cursor: pointer;
     font-size: 17px;
+}
+
+
+.users-list a .content img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+/* We'll use this class name in php to show offline status */
+.users-list a .status-dot{
+    font-size: 12px;
+    color: rgb(6, 194, 0);
+}
+.users-list a .status-dot .offline{
+    font-size: 12px;
+    color: #ccc !important;
 }
